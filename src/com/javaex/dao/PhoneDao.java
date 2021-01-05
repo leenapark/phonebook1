@@ -145,7 +145,7 @@ public class PhoneDao {
 	}
 
 	// **********수정**********
-	public int getUpdate(int num, String name, String hp, String company) {
+	public int getUpdate(PersonVo personVo) {
 
 		getconnection();
 
@@ -166,10 +166,10 @@ public class PhoneDao {
 
 			// 쿼리문 만들기
 			pstmt = conn.prepareStatement(query);
-			pstmt.setString(1, name);
-			pstmt.setString(2, hp);
-			pstmt.setString(3, company);
-			pstmt.setInt(4, num);
+			pstmt.setString(1, personVo.getName());
+			pstmt.setString(2, personVo.getHp());
+			pstmt.setString(3, personVo.getCompany());
+			pstmt.setInt(4, personVo.getPersonId());
 
 			count = pstmt.executeUpdate();
 
@@ -279,4 +279,46 @@ public class PhoneDao {
 		return serch;
 	}
 
+	
+	//************해당하는 정보 가져오기***********
+	public PersonVo getPerson(int personId) {
+		PersonVo personVo = null;
+
+		getconnection();
+
+		try {
+			// 3. SQL문 준비 / 바인딩 / 실행
+			String query = "";
+			query += " select phone_id, ";
+			query += "	      name, ";
+			query += "	      hp, ";
+			query += "	      company ";
+			query += " from person ";
+			query += " where phone_id = ? ";
+
+			// System.out.println(query);
+
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, personId);
+			
+			rs = pstmt.executeQuery();
+
+			// 4.결과처리
+			while (rs.next()) {
+				int personID = rs.getInt("phone_id");
+				String name = rs.getString("name");
+				String hp = rs.getString("hp");
+				String company = rs.getString("company");
+
+				personVo = new PersonVo(personID, name, hp, company);
+				
+			}
+
+		} catch (SQLException e) {
+			System.out.println("error:" + e);
+		}
+
+		close();
+		return personVo;
+	}
 }
