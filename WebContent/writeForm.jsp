@@ -13,7 +13,7 @@
 	<!--http://localhost:8088/phonebook1/insert.jsp?name=박리나&hp=010-1111-1111&company=02-2222-2222 -->
 	
 	
-	<form action="./insert.jsp" method="get">
+	<form action="./insert.jsp" method="post">
 		이름(name) : <input type="text" name="name"><br>
 		핸드폰(hp) : <input type="text" name="hp"><br>
 		회사(company) : <input type="text" name="company"><br>
