@@ -3,7 +3,7 @@ package com.javaex.vo;
 public class PersonVo {
 
 	// 필드
-	private int phoneId;
+	private int personId;
 	private String name;
 	private String hp;
 	private String company;
@@ -12,19 +12,14 @@ public class PersonVo {
 	public PersonVo() {
 	}
 
-	public PersonVo(String name, String hp) {
-		this.name = name;
-		this.hp = hp;
-	}
-
 	public PersonVo(String name, String hp, String company) {
 		this.name = name;
 		this.hp = hp;
 		this.company = company;
 	}
 
-	public PersonVo(int phoneId, String name, String hp, String company) {
-		this.phoneId = phoneId;
+	public PersonVo(int personId, String name, String hp, String company) {
+		this.personId = personId;
 		this.name = name;
 		this.hp = hp;
 		this.company = company;
@@ -32,12 +27,12 @@ public class PersonVo {
 
 	// 메소드 g/s
 
-	public int getPhoneId() {
-		return phoneId;
+	public int getPersonId() {
+		return personId;
 	}
 
-	public void setPhoneId(int phoneId) {
-		this.phoneId = phoneId;
+	public void setPersonId(int personId) {
+		this.personId = personId;
 	}
 
 	public String getName() {
@@ -67,12 +62,12 @@ public class PersonVo {
 	// 메소드 일반
 	// listInfo
 	public void listInfo() {
-		System.out.println(phoneId + "\t" + name + "\t" + hp + "\t" + company);
+		System.out.println(personId + "\t" + name + "\t" + hp + "\t" + company);
 	}
 
 	@Override
 	public String toString() {
-		return "PhoneVo [name=" + name + ", hp=" + hp + ", company=" + company + "]";
+		return "PersonVo [personId=" + personId + ", name=" + name + ", hp=" + hp + ", company=" + company + "]";
 	}
 
 }
