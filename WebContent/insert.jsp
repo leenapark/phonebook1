@@ -17,17 +17,16 @@
 	/*저장*/
 	phoneDao.phoneInsert(personVo);
 	
-	/*
-	리스트
-	List<PersonVo> personList = phoneDao.getList();
-	*/
 	
-	response.sendRedirect("./list.jsp");
-
+	List<PersonVo> personList = phoneDao.getList();
+	
+	
+	//response.sendRedirect("./list.jsp");
+	//리다이렉트를 할 경우 화면이 바로 넘어가서 HTML이 불필요한 코드가 된다
 %>
 
-<!-- 
-리다이렉트를 할 경우 화면이 바로 넘어가서 HTML이 불필요한 코드가 된다
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,7 +34,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<%--
+
 	<%for(int i=0; i<personList.size(); i++) { %>
 		<table border="1">
 			<tr>
@@ -53,8 +52,7 @@
 		</table>
 		<br>
 	<%} %>
-	--%>
+
 </body>
 </html>
 
- -->

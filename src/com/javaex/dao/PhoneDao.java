@@ -193,8 +193,8 @@ public class PhoneDao {
 		try {
 			// 3. SQL문 준비 / 바인딩 / 실행
 			String query = "";
-			query += "delete person \n";
-			query += "where phone_id = ?";
+			query += " delete person ";
+			query += " where phone_id = ? ";
 
 			// System.out.println(query);
 
@@ -239,14 +239,14 @@ public class PhoneDao {
 			 * or company like '%123%';
 			 */
 			String query = "";
-			query += "select phone_id, \n";
-			query += "	 name, \n";
-			query += "	 hp, \n";
-			query += "	 company \n";
-			query += " from person \n";
-			query += " where name like ? \n";
-			query += " or hp like ? \n";
-			query += " or company like ?";
+			query += "select phone_id, ";
+			query += "	     name, ";
+			query += "	 	 hp, ";
+			query += "		 company ";
+			query += " from person ";
+			query += " where name like ? ";
+			query += " and(or hp like ? ";
+			query += " or company like ?)";
 
 			// 쿼리문 확인
 			// System.out.println(query);
